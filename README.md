@@ -1,6 +1,6 @@
 # OwnGalleryView
 
-This is a simple Gallery View Demo project. Which help you to learn, how to create Own Gallery App like android Gallery for android 2.2 to higher. Import this project in your Eclipse workspace and import lib (appcompact-v7).
+This is a simple Gallery View Demo project. Which help you to learn, how to create Own Gallery App like android Gallery for android 2.2 to higher. Import this project in your Eclipse workspace and import lib (appcompact-v7).Set Android target version API 21
 
 # Project View index: 
 1. Phone Image Album. 
