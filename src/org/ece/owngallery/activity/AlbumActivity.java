@@ -64,7 +64,7 @@ public class AlbumActivity extends ActionBarActivity{
 		Bundle mBundle=getIntent().getExtras();
 		String nameAlbum = mBundle.getString("Key_Name");
 		int AlbummID =Integer.parseInt(mBundle.getString("Key_ID")) ;
-		albumsSorted=GalleryActivity.albumsSorted;
+		albumsSorted=GalleryFragment.albumsSorted;
 		
 		photos=albumsSorted.get(AlbummID).photos;
 		
