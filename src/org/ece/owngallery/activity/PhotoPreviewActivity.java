@@ -21,7 +21,7 @@ public class PhotoPreviewActivity extends ActionBarActivity implements OnPageCha
 
 	private ViewPager mViewPager;
 	protected List<PhotoEntry> photos;
-	protected int current;
+	protected int current,folderPosition;
 	
 	protected Context context;
 	private Toolbar toolbar;
@@ -37,11 +37,12 @@ public class PhotoPreviewActivity extends ActionBarActivity implements OnPageCha
 		toolbar.setTitle("");
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		
-		
-		photos=AlbumActivity.photos;
+
 		Bundle mBundle=getIntent().getExtras();
+		folderPosition= mBundle.getInt("Key_FolderID");
 		current= mBundle.getInt("Key_ID");
+		
+		photos=GalleryFragment.albumsSorted.get(folderPosition).photos;
 		
 		mViewPager = (ViewPager) findViewById(R.id.vp_base_app);
 		mViewPager.setOnPageChangeListener(this);

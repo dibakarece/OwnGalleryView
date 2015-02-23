@@ -53,15 +53,15 @@ public class PhoneMediaVideoController {
 	 	                            
 //	 	                          String minikind cursor.getString( MediaStore.Video.Thumbnails.MINI_KIND);
 
-								BitmapFactory.Options options = new BitmapFactory.Options();
-								options.inSampleSize = 1;
-								Bitmap curThumb = MediaStore.Video.Thumbnails.getThumbnail(
-												ApplicationOwnGallery.applicationContext.getContentResolver(),imageId,
-												MediaStore.Video.Thumbnails.MINI_KIND,
-												options);
+//								BitmapFactory.Options options = new BitmapFactory.Options();
+//								options.inSampleSize = 1;
+//								Bitmap curThumb = MediaStore.Video.Thumbnails.getThumbnail(
+//												ApplicationOwnGallery.applicationContext.getContentResolver(),imageId,
+//												MediaStore.Video.Thumbnails.MINI_KIND,
+//												options);
 	 	                           
-//								  VideoDetails mVideoDetails=new VideoDetails(imageId, bucketId, bucketName, path, dateTaken, resolution, size, displayname, duration,null);
-	 	                           VideoDetails mVideoDetails=new VideoDetails(imageId, bucketId, bucketName, path, dateTaken, resolution, size, displayname, duration,curThumb);
+								  VideoDetails mVideoDetails=new VideoDetails(imageId, bucketId, bucketName, path, dateTaken, resolution, size, displayname, duration,null);
+//	 	                           VideoDetails mVideoDetails=new VideoDetails(imageId, bucketId, bucketName, path, dateTaken, resolution, size, displayname, duration,curThumb);
 	 	                           arrVideoDetails.add(mVideoDetails);
 	                        	 }
 							}

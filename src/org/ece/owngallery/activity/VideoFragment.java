@@ -8,6 +8,7 @@ import org.ece.owngallery.adapter.BaseFragmentAdapter;
 import org.ece.owngallery.component.PhoneMediaVideoController;
 import org.ece.owngallery.component.PhoneMediaVideoController.VideoDetails;
 import org.ece.owngallery.component.PhoneMediaVideoController.loadAllVideoMediaInterface;
+import org.ece.owngallery.component.VideoThumbleLoader;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,10 +23,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class VideoFragment extends Fragment implements loadAllVideoMediaInterface{
 
@@ -48,7 +45,6 @@ public class VideoFragment extends Fragment implements loadAllVideoMediaInterfac
 	
 	private void initializeView(View v){ 
 		mView=(GridView)v.findViewById(R.id.grid_view);
-	     
 		mView.setAdapter(listAdapter = new ListAdapter(mContext));
 
         int position = mView.getFirstVisiblePosition();
@@ -59,13 +55,6 @@ public class VideoFragment extends Fragment implements loadAllVideoMediaInterfac
 
         listAdapter.notifyDataSetChanged();
         mView.setSelection(position);
-        mView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            	startActivity(new Intent(mContext,VideoActivity.class)); 
-            }
-        });
-        
         loadData();
 	}
 	
@@ -87,17 +76,13 @@ public class VideoFragment extends Fragment implements loadAllVideoMediaInterfac
 	private ArrayList<VideoDetails> arrayVideoDetails = null;
 	private class ListAdapter extends BaseFragmentAdapter {
 		private Context mContext;
-		private DisplayImageOptions options;
-		private ImageLoader imageLoader = ImageLoader.getInstance();
-
+		private VideoThumbleLoader thumbleLoader;
+		private LayoutInflater inflater;
+		
 		public ListAdapter(Context context) {
-			mContext = context;
-			options = new DisplayImageOptions.Builder()
-					.showImageOnLoading(R.drawable.nophotos)
-					.showImageForEmptyUri(R.drawable.nophotos)
-					.showImageOnFail(R.drawable.nophotos).cacheInMemory(true)
-					.cacheOnDisc(true).considerExifParams(true).build();
-			imageLoader.init(ImageLoaderConfiguration.createDefault(context));
+			this.mContext = context;
+			this.thumbleLoader=new VideoThumbleLoader(mContext);
+			this.inflater= (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		}
 
 		@Override
@@ -132,29 +117,28 @@ public class VideoFragment extends Fragment implements loadAllVideoMediaInterfac
 
 		@Override
 		public View getView(int i, View view, ViewGroup viewGroup) {
+			ViewHolder mViewHolder ;
 			if (view == null) {
-				LayoutInflater li = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				view = li.inflate(R.layout.photo_picker_album_layout,viewGroup, false);
+				mViewHolder=new ViewHolder();
+				view = inflater.inflate(R.layout.photo_picker_album_layout,viewGroup, false);
+				mViewHolder.img = (ImageView) view.findViewById(R.id.media_photo_image);
+				mViewHolder.txtTitle = (TextView) view.findViewById(R.id.album_name);
+				mViewHolder.txtCount = (TextView) view.findViewById(R.id.album_count);
+				
+				ViewGroup.LayoutParams params = view.getLayoutParams();
+				params.width = itemWidth;
+				params.height = itemWidth;
+				view.setLayoutParams(params);
+				view.setTag(mViewHolder);
+			}else { 
+				mViewHolder = (ViewHolder) view.getTag();
 			}
-			ViewGroup.LayoutParams params = view.getLayoutParams();
-			params.width = itemWidth;
-			params.height = itemWidth;
-			view.setLayoutParams(params);
-
+			
 			VideoDetails mVideoDetails = arrayVideoDetails.get(i); 
-			final ImageView imageView = (ImageView) view.findViewById(R.id.media_photo_image);
 			final String videoPath=mVideoDetails.path;
-			
-			if (mVideoDetails.curThumb != null) {
-				imageView.setImageBitmap(mVideoDetails.curThumb);
-			} else {
-				imageView.setImageResource(R.drawable.nophotos);
-			}
-			TextView textView = (TextView) view.findViewById(R.id.album_name);
-			textView.setText(mVideoDetails.displayname);
-			textView = (TextView) view.findViewById(R.id.album_count);
+			thumbleLoader.DisplayImage(""+mVideoDetails.imageId, mContext, mViewHolder.img, null); 
+			mViewHolder.txtTitle.setText(mVideoDetails.displayname);
 
-			
 			view.setOnClickListener(new OnClickListener() {
 				
 				@Override
@@ -173,7 +157,11 @@ public class VideoFragment extends Fragment implements loadAllVideoMediaInterfac
 			});
 			return view;
 		}
-
+		private class ViewHolder{
+			ImageView img;
+			TextView txtTitle;
+			TextView txtCount;
+		}
 
 	}
 }

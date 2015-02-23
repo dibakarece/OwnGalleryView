@@ -11,74 +11,61 @@ import org.ece.owngallery.component.PhoneMediaControl.PhotoEntry;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-public class AlbumActivity extends ActionBarActivity{
+public class CameraFragment extends Fragment {
 
 	public static final String PACKAGE = "org.ece.owngallery";
-	private Toolbar toolbar;
+    private TextView emptyView;
 	private GridView mView;
 	private Context mContext;
-
-	public static ArrayList<PhoneMediaControl.AlbumEntry> albumsSorted = null;
+	
+	
 	public static ArrayList<PhotoEntry> photos = new ArrayList<PhotoEntry>();
-
+	public static ArrayList<PhoneMediaControl.AlbumEntry> albumsSorted = null;
+	
+	private Integer cameraAlbumId = null;
+	private PhoneMediaControl.AlbumEntry selectedAlbum = null;
 	private int itemWidth = 100;
 	private ListAdapter listAdapter;
-	private int AlbummID=0;
+	
+	
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_album);
-
-		
-		 mContext=AlbumActivity.this;
-		 initializeActionBar();
-		 initializeView();
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+		/** Inflating the layout for this fragment **/
+		mContext = this.getActivity();
+		View v = inflater.inflate(R.layout.fragment_gallery, null);
+		initializeView(v);
+		return v;
 	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			onBackPressed();
-			break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	
-	private void initializeActionBar() {
-		
-		Bundle mBundle=getIntent().getExtras();
-		String nameAlbum = mBundle.getString("Key_Name");
-		AlbummID =Integer.parseInt(mBundle.getString("Key_ID")) ;
+	private void initializeView(View v){ 
+		mView=(GridView)v.findViewById(R.id.grid_view);
+        emptyView = (TextView)v.findViewById(R.id.searchEmptyView);
+        emptyView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        emptyView.setText("NoPhotos");
+		mView.setAdapter(listAdapter = new ListAdapter(mContext));
 		albumsSorted=GalleryFragment.albumsSorted;
+		photos=GalleryFragment.albumsSorted.get(0).photos;
 		
-		photos=albumsSorted.get(AlbummID).photos;
-		
-		toolbar = (Toolbar) findViewById(R.id.tool_bar);
-		toolbar.setTitle(nameAlbum+" ("+photos.size()+")");
-		setSupportActionBar(toolbar);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-	}
-	
-	private void initializeView(){
-		mView=(GridView)findViewById(R.id.grid_view);
-		mView.setAdapter(listAdapter = new ListAdapter(AlbumActivity.this));
-
         int position = mView.getFirstVisiblePosition();
         int columnsCount = 2;
         mView.setNumColumns(columnsCount);
@@ -90,28 +77,21 @@ public class AlbumActivity extends ActionBarActivity{
         mView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            	Intent mIntent=new Intent(AlbumActivity.this,PhotoPreviewActivity.class);
+            	Intent mIntent=new Intent(mContext,PhotoPreviewActivity.class);
             	Bundle mBundle=new Bundle();
-            	mBundle.putInt("Key_FolderID", AlbummID);
+            	mBundle.putInt("Key_FolderID", 0);
             	mBundle.putInt("Key_ID", position);
             	mIntent.putExtras(mBundle);
             	startActivity(mIntent);
+            	
             }
         });
         
-		LoadAllAlbum();
-	}
- 
-	private void LoadAllAlbum(){
-		if (mView != null && mView.getEmptyView() == null) {
-			mView.setEmptyView(null);
-        }
         if (listAdapter != null) {
             listAdapter.notifyDataSetChanged();
         }
 	}
 	
-
 	private class ListAdapter extends BaseFragmentAdapter {
 		private Context mContext;
 		private LayoutInflater layoutInflater;
@@ -208,5 +188,4 @@ public class AlbumActivity extends ActionBarActivity{
 		}
 
 	}
-
 }
