@@ -8,14 +8,15 @@ This is a simple Gallery View Demo project. Which help you to learn, how to crea
 3.After click on Album image open it in Pager view.
 4.Image can be Zoom in and Zoom out by double tap or pinch.
 
-# Gallery Screen:
-![device-2015-02-18-004027](https://cloud.githubusercontent.com/assets/10453203/6235363/f4704b50-b707-11e4-8217-bea5e0174068.png)
-
-# Album Screen:
-![device-2015-02-18-004058](https://cloud.githubusercontent.com/assets/10453203/6235390/1ff038a8-b708-11e4-96de-db51017190f4.png)
-
-# Album Details:
-![device-2015-02-18-004125](https://cloud.githubusercontent.com/assets/10453203/6235414/47445164-b708-11e4-9c4d-e8d9e1caa8e0.png)
-
-# Zoom Effect in Image:
+# Gallery:
 ![device-2015-02-18-004156](https://cloud.githubusercontent.com/assets/10453203/6235434/658a1b4a-b708-11e4-840c-1717a28c1cfc.png)
+# Album Screen:
+![device-2015-02-24-105123](https://cloud.githubusercontent.com/assets/10453203/6344988/3830270c-bc26-11e4-896d-e245d70e4cd2.png)
+# Album Details:
+![device-2015-02-24-105134](https://cloud.githubusercontent.com/assets/10453203/6344986/382ee716-bc26-11e4-97e6-5616fa59e63f.png)
+![device-2015-02-24-105150](https://cloud.githubusercontent.com/assets/10453203/6344987/382f0dfe-bc26-11e4-9dcf-588d0d720fb0.png)
+![device-2015-02-24-105202](https://cloud.githubusercontent.com/assets/10453203/6344985/382ed4f6-bc26-11e4-9b86-b5365da7d7e1.png)
+![device-2015-02-24-105240](https://cloud.githubusercontent.com/assets/10453203/6344989/3830b80c-bc26-11e4-8925-fc7b28265ba6.png)
+![device-2015-02-24-105302](https://cloud.githubusercontent.com/assets/10453203/6344991/38329ef6-bc26-11e4-8dba-1833cc9fb014.png)
+# Zoom Effect in Image:
+![device-2015-02-24-105312](https://cloud.githubusercontent.com/assets/10453203/6344992/3859e722-bc26-11e4-82ec-5076a0e5adbc.png)
