@@ -8,7 +8,6 @@ This is a simple Gallery View Demo project. Which help you to learn, how to crea
 3.After click on Album image open it in Pager view.
 4.Image can be Zoom in and Zoom out by double tap or pinch.
 
-![device-2015-02-18-004156](https://cloud.githubusercontent.com/assets/10453203/6235434/658a1b4a-b708-11e4-840c-1717a28c1cfc.png)
 ![device-2015-02-24-105123](https://cloud.githubusercontent.com/assets/10453203/6344988/3830270c-bc26-11e4-896d-e245d70e4cd2.png)
 ![device-2015-02-24-105134](https://cloud.githubusercontent.com/assets/10453203/6344986/382ee716-bc26-11e4-97e6-5616fa59e63f.png)
 ![device-2015-02-24-105150](https://cloud.githubusercontent.com/assets/10453203/6344987/382f0dfe-bc26-11e4-9dcf-588d0d720fb0.png)
