@@ -1,3 +1,4 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-OwnGalleryView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/2702)
 # OwnGalleryView
 
 This is a simple Gallery View Demo project. Which help you to learn, how to create Own Gallery App like android Gallery for android 2.2 to higher. Import this project in your Eclipse workspace and import lib (appcompact-v7).Set Android target version API 21
