@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\libs\universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3526df34297bab9b9cc33d93d6e68f60fc2f94ea">
+        <dex dex="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.2-SNAPSHOT-with-sources-20080f6ee044055275bfb547d81d5fb3e94a766d.jar" />
+    </item>
+    <item
+        jar="D:\ANDROID\ANDROIDSOFTWARE\Android\AndroidStudio\InstallationDrive\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-3102d7fcd9e3ddfd74e16b8b22cd226c12a57c83.jar" />
+    </item>
+    <item
+        jar="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\pre-dexed\debug\classes-fb7bb8ab1751e0f4652afa665884477298b301ef.jar" />
+    </item>
+    <item
+        jar="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-305bc101a3e3c94112730e5e82a4b36e9e9b5097.jar" />
+    </item>
+    <item
+        jar="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="D:\ANDROID\HOMEWORK\TaxiApp\OwnGallery\app\build\intermediates\pre-dexed\debug\classes-2ff8f89b0359cfa3d765345e2f3d35325f0f8769.jar" />
+    </item>
+
+</items>

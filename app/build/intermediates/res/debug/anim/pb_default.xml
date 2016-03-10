@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_loading_white"
+    android:pivotX="50%"
+    android:pivotY="50%" />
+<!-- From: file:/D:/ANDROID/HOMEWORK/TaxiApp/OwnGallery/app/src/main/res/anim/pb_default.xml -->
