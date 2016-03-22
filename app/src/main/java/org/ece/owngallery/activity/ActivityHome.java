@@ -32,7 +32,6 @@ public class ActivityHome extends ActionBarActivity implements SlideMenuAdapterI
     private FragmentTransaction fragmentTransaction = null;
 	private Fragment currentFragment=null;
 	
-
 	private ListView slidingList;
 	private SlideMenuAdapter mSlideMenuAdapter;
 	private int currentPosition=0;
@@ -45,6 +44,7 @@ public class ActivityHome extends ActionBarActivity implements SlideMenuAdapterI
 		 mContext=ActivityHome.this;
 		 initializeActionBar();
 		 initialCalling();
+		 
 	}
 
 	@Override
@@ -55,7 +55,6 @@ public class ActivityHome extends ActionBarActivity implements SlideMenuAdapterI
 	        super.onBackPressed();
 	    }
 	}
-
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
