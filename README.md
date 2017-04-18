@@ -17,7 +17,7 @@ This is a simple Gallery View Demo project. Which help you to learn, how to crea
 ![device-2015-02-24-105302](https://cloud.githubusercontent.com/assets/10453203/6344991/38329ef6-bc26-11e4-8dba-1833cc9fb014.png)
 ![device-2015-02-24-105312](https://cloud.githubusercontent.com/assets/10453203/6344992/3859e722-bc26-11e4-82ec-5076a0e5adbc.png)
 
-#License
+# License
 Copyright 2015 dibakar.ece@gmail.com Dibakar Mistry
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:
